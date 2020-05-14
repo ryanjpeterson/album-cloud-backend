@@ -46,6 +46,7 @@ exports.getAlbum = (req, res) => {
 
 exports.postAlbum = (req, res) => {
   let { artist, album, year, genres, comment } = req.body;
+  console.log(req.body);
 
   genres = parseGenres(genres);
 
@@ -63,10 +64,13 @@ exports.postAlbum = (req, res) => {
 
   db.collection("albums")
     .add(newPost)
-    .then((res) => console.log(res))
+    .then((docRef) => {
+      res.status(201).json({
+        message: `You added ${album} by ${artist} to the database!`,
+        newPostId: docRef.id,
+      });
+    })
     .catch((err) => res.status(400).send(err));
-
-  res.status(201).send(`You submitted ${album} by ${artist} to the database!`);
 };
 
 exports.editAlbumInfo = (req, res) => {
@@ -89,8 +93,6 @@ exports.editAlbumInfo = (req, res) => {
     dateUpdated: new Date().toISOString(),
   };
 
-  console.log(albumInfo);
-
   db.doc(`/albums/${id}`)
     .update(albumInfo)
     .then(() => {
@@ -103,7 +105,7 @@ exports.editAlbumInfo = (req, res) => {
     });
 };
 
-exports.uploadCover = (req, res) => {
+exports.uploadAlbumCover = (req, res) => {
   const busboy = new Busboy({ headers: req.headers });
 
   let imageFileName;

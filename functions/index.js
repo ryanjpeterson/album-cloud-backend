@@ -4,9 +4,6 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const json = bodyParser.json();
-const form = bodyParser.urlencoded({ extended: true });
-
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json());
@@ -22,7 +19,7 @@ const {
   getAlbums,
   getAlbum,
   postAlbum,
-  uploadCover,
+  uploadAlbumCover,
   editAlbumInfo,
 } = require("./handlers/albums");
 
@@ -31,7 +28,7 @@ app.get("/", getAlbums);
 app.get("/album/:id", getAlbum);
 
 app.post("/post", postAlbum);
-app.post("/album/:id/uploadCover", uploadCover);
+app.post("/album/:id/uploadAlbumCover", uploadAlbumCover);
 app.post("/album/:id/editAlbumInfo", editAlbumInfo);
 
 // Init server
