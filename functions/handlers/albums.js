@@ -141,12 +141,10 @@ exports.uploadAlbumCover = (req, res) => {
       })
       .then(() => {
         albumCover = `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${imageFileName}?alt=media`;
-        return db
-          .doc(`/albums/${req.params.id}`)
-          .update({
-            albumCover: albumCover,
-            dateUpdated: new Date().toISOString(),
-          });
+        return db.doc(`/albums/${req.params.id}`).update({
+          albumCover: albumCover,
+          dateUpdated: new Date().toISOString(),
+        });
       })
       .then(() => {
         return res.json({

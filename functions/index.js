@@ -1,4 +1,7 @@
 // Node modules
+const functions = require("firebase-functions");
+const FBAuth = require("./util/fbAuth");
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -9,10 +12,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const functions = require("firebase-functions");
-
 // Local files
-// const { admin, db } = require("./util/admin");
+const { admin, db } = require("./util/admin");
 
 // Handler imports
 const {
@@ -23,11 +24,14 @@ const {
   editAlbumInfo,
 } = require("./handlers/albums");
 
+const { login } = require("./handlers/users");
+
 // Album handlers
 app.get("/", getAlbums);
 app.get("/album/:id", getAlbum);
 
-app.post("/post", postAlbum);
+app.post("/login", login);
+app.post("/post", FBAuth, postAlbum);
 app.post("/album/:id/uploadAlbumCover", uploadAlbumCover);
 app.post("/album/:id/editAlbumInfo", editAlbumInfo);
 
