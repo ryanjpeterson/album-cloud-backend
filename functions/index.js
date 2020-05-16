@@ -32,8 +32,8 @@ app.get("/album/:id", getAlbum);
 
 app.post("/login", login);
 app.post("/post", FBAuth, postAlbum);
-app.post("/album/:id/uploadAlbumCover", uploadAlbumCover);
-app.post("/album/:id/editAlbumInfo", editAlbumInfo);
+app.post("/album/:id/uploadAlbumCover", FBAuth, uploadAlbumCover);
+app.post("/album/:id/editAlbumInfo", FBAuth, editAlbumInfo);
 
 // Init server
 app.listen(5000, () => {
