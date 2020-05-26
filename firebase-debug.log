@@ -1,24 +1,24 @@
-[debug] [2020-05-11T12:17:15.583Z] ----------------------------------------------------------------------
-[debug] [2020-05-11T12:17:15.585Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2020-05-11T12:17:15.585Z] CLI Version:   6.8.0
-[debug] [2020-05-11T12:17:15.585Z] Platform:      darwin
-[debug] [2020-05-11T12:17:15.585Z] Node Version:  v12.14.1
-[debug] [2020-05-11T12:17:15.586Z] Time:          Mon May 11 2020 08:17:15 GMT-0400 (Eastern Daylight Time)
-[debug] [2020-05-11T12:17:15.587Z] ----------------------------------------------------------------------
+[debug] [2020-05-14T17:27:11.570Z] ----------------------------------------------------------------------
+[debug] [2020-05-14T17:27:11.572Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2020-05-14T17:27:11.572Z] CLI Version:   6.8.0
+[debug] [2020-05-14T17:27:11.572Z] Platform:      darwin
+[debug] [2020-05-14T17:27:11.572Z] Node Version:  v12.14.1
+[debug] [2020-05-14T17:27:11.573Z] Time:          Thu May 14 2020 13:27:11 GMT-0400 (Eastern Daylight Time)
+[debug] [2020-05-14T17:27:11.573Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2020-05-11T12:17:15.598Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-05-11T12:17:15.598Z] > authorizing via signed-in user
-[debug] [2020-05-11T12:17:15.598Z] [iam] checking project album-cloud-8c72f for permissions ["firebase.projects.get"]
-[debug] [2020-05-11T12:17:15.600Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/album-cloud-8c72f:testIamPermissions  
+[debug] [2020-05-14T17:27:11.582Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-14T17:27:11.583Z] > authorizing via signed-in user
+[debug] [2020-05-14T17:27:11.583Z] [iam] checking project album-cloud-8c72f for permissions ["firebase.projects.get"]
+[debug] [2020-05-14T17:27:11.584Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/album-cloud-8c72f:testIamPermissions  
 
-[debug] [2020-05-11T12:17:16.026Z] <<< HTTP RESPONSE 200
-[debug] [2020-05-11T12:17:16.029Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/album-cloud-8c72f  
+[debug] [2020-05-14T17:27:13.389Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-14T17:27:13.392Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/album-cloud-8c72f  
  
-[debug] [2020-05-11T12:17:16.432Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-14T17:27:16.107Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/ryanpeterson/Web Development/Projects/album-cloud/backend'...
 [info] 
-[debug] [2020-05-11T12:17:17.096Z] Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/logs'
+[debug] [2020-05-14T17:27:18.729Z] Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/logs'
     at Object.mkdirSync (fs.js:823:3)
     at Object.assertLogsPath (/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/emulator/logs.js:65:10)
     at new Controller (/usr/local/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/cli/controller.js:77:32)

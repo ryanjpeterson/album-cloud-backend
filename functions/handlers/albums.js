@@ -84,12 +84,12 @@ exports.editAlbumInfo = (req, res) => {
   }
 
   const albumInfo = {
-    artist: artist,
-    album: album,
-    year: year,
-    comment: comment,
-    genres: genres,
-    albumCover: albumCover,
+    artist,
+    album,
+    year,
+    comment,
+    genres,
+    albumCover,
     dateUpdated: new Date().toISOString(),
   };
 
@@ -101,7 +101,7 @@ exports.editAlbumInfo = (req, res) => {
         .json({ message: "Album info successfully edited!" });
     })
     .catch((err) => {
-      return res.status(400).json({ error: err.code });
+      return res.status(400).json({ err });
     });
 };
 
@@ -159,4 +159,24 @@ exports.uploadAlbumCover = (req, res) => {
   });
 
   req.pipe(busboy);
+};
+
+exports.deleteAlbum = (req, res) => {
+  const document = db.doc(`/albums/${req.params.id}`);
+
+  document
+    .get()
+    .then((doc) => {
+      if (!doc.exists) {
+        res.status(404).json({ error: "ID not found! " });
+      }
+
+      return document.delete();
+    })
+    .then(() => {
+      return res.json({ message: "Album entry deleted! " });
+    })
+    .catch((err) => {
+      return res.status(500).json({ error: err });
+    });
 };

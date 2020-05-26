@@ -22,6 +22,7 @@ const {
   postAlbum,
   uploadAlbumCover,
   editAlbumInfo,
+  deleteAlbum,
 } = require("./handlers/albums");
 
 const { login } = require("./handlers/users");
@@ -34,6 +35,7 @@ app.post("/login", login);
 app.post("/post", FBAuth, postAlbum);
 app.post("/album/:id/uploadAlbumCover", FBAuth, uploadAlbumCover);
 app.post("/album/:id/editAlbumInfo", FBAuth, editAlbumInfo);
+app.delete("/album/:id", FBAuth, deleteAlbum);
 
 // Init server
 app.listen(5000, () => {
